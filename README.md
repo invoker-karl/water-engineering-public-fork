@@ -1,7 +1,7 @@
 # water-engineering — 水利工程领域专用 Claude Code Skill
 
 [![Skill](https://img.shields.io/badge/Claude_Code-Skill-8A2BE2)](https://code.claude.com)
-[![Size](https://img.shields.io/badge/Size-2248_lines_/_88KB-blue)](skill.md)
+[![Size](https://img.shields.io/badge/Size-2321_lines_/_88KB-blue)](skill-public.md)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 一套完整的**水利水电工程领域 AI 辅助设计技能**，为中国水利工程师打造，覆盖水文计算、水工设计、中国标准规范、施工组织、工程经济等全专业领域。
