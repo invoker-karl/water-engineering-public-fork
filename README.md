@@ -1,98 +1,90 @@
-# water-engineering — 水利工程领域专用 Claude Code Skill
+# 水利工程技能（water-engineering）
 
 [![Skill](https://img.shields.io/badge/Claude_Code-Skill-8A2BE2)](https://code.claude.com)
-[![Version](https://img.shields.io/github/v/release/WhOleit-hub/water-engineering-skill)](https://github.com/WhOleit-hub/water-engineering-skill/releases)
+[![Release](https://img.shields.io/github/v/release/WhOleit-hub/water-engineering-skill)](https://github.com/WhOleit-hub/water-engineering-skill/releases)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-一套完整的**水利水电工程领域 AI 辅助设计技能**，为中国水利工程师打造，覆盖水文计算、水工设计、中国标准规范、施工组织、工程经济等全专业领域。
+面向中国水利工程工作的专业技能包。它把水文、水力、水工结构、涉河建设与洪水影响评价的工作要求组织成可追溯流程：先核实水流路径、资料来源与适用规范，再计算、复核并形成可审查结论。
 
----
+> 本公开版不包含个人、项目或涉密资料；所有工程数值均应以经核实的设计资料、现行规范和正式计算成果为准。
 
-## 核心能力
+## 能力范围
 
-| 模块 | 内容 |
-|------|------|
-| **标准规范** | 国标 12 部 + 水利行标 50+ 部（含 2024-2026 最新发布） |
-| **水文计算** | P-III 频率曲线、设计洪水、暴雨推求、马斯京根法、水库兴利调节、PMF |
-| **水力学** | 明渠流、水面线计算、水跃、堰流（WES/宽顶堰）、消能、渗流 |
-| **水工建筑物** | 重力坝、土石坝、水闸、溢洪道、水工隧洞 |
-| **水工结构** | 水工钢筋混凝土（SL 191/DL/T 5057）、水工钢结构、挡土墙 |
-| **水电站** | 引水系统、水锤调保、水轮机选型、厂房布置 |
-| **灌溉排水** | 灌溉原理、灌水方法、渠道设计、排水系统 |
-| **河流动力学** | 泥沙运动、河床演变、河道整治 |
-| **地下水** | 传递函数噪声模型、含水层参数率定（整合 pastas 技能） |
-| **计算软件** | 远盛水工、理正岩土、理正结构工具箱、AutoBank、HEC-RAS、MIKE 11 |
-| **报告模板** | 可研/初设/防洪评价/水文专题/水资源论证/大坝安全评价/山洪沟治理标准目录 |
-| **批复文书** | 水利部 22 种水行政许可文书模板 |
-| **实战项目库** | 40+ 个福建水利工程项目（2023-2026）经验数据 |
+| 场景 | 提供的工作支持 |
+| --- | --- |
+| 水文分析 | 设计洪水、暴雨径流、P-III 频率分析、调洪演算的资料核查与复核流程 |
+| 水力计算 | 明渠水面线、曼宁公式、堰流、水跃与消能的适用条件、计算与复核要求 |
+| 水工建筑物 | 坝、闸、堤防、挡土墙、渗流与稳定验算的资料组织及审查要点 |
+| 涉河与洪评 | 顶管、倒虹吸、围堰、施工导流、壅水、冲淤、河势与防洪工程安全评价 |
+| 报告审查 | 可研、初设、施工图、专题与报批报告的资料闭合、计算衔接和问题清单 |
+| 工程工具 | 按需引用 HEC-RAS、MIKE、地下水与地貌等工具资料，不以软件名称替代计算依据 |
 
----
+## 使用原则
 
-## 版本与迭代
+1. 先读水系图、总平面、纵断面或控制断面，确认“来水—控制工程—项目—下游出口”。
+2. 每项输入应注明来源、桩号/断面、时间、频率、单位和高程基准；资料冲突时优先采用批准变更或最终施工图。
+3. 永久工程与施工临时工程分开评价；设计与校核工况、不同频率洪水不得混用。
+4. 计算结论至少通过量纲、守恒、反算、等价方法或实测/历史资料中的一种方式独立复核。
+5. 不虚构糙率、粒径、级配、断面、模型边界或稳定系数；缺少正式资料时，明确为待核实项。
 
-| 版本 | 日期 | 说明 |
-|:----:|:----:|:----|
-| v1.0.0 | 2026-06-26 | 首次发布，行数优化 2322→1027（-56%） |
-
-开发在 `develop` 分支进行，稳定后合并到 `master` 并发布 Release。
-
----
-
-## 安装使用
+## 安装与调用
 
 ```bash
-# 克隆到 Claude Code skills 目录
+# 克隆到 Claude Code 的 skills 目录
 git clone https://github.com/WhOleit-hub/water-engineering-skill.git ~/.claude/skills/water-engineering
 
 # 在 Claude Code 中调用
 /water-engineering
 ```
 
----
+使用时可直接描述任务，例如：
 
-## 文件结构
-
+```text
+根据初设和施工图，复核某涉河顶管工程的洪水影响评价第五章。
+请列出资料矛盾、计算假定、独立复核结果及需落实的措施。
 ```
+
+复杂任务（如 P-III 适线、多断面水面线、多工况稳定、完整洪评或跨多项规范的报告）应先形成计算提纲和资料缺口表，再进入正式计算。
+
+## 目录结构
+
+```text
 water-engineering/
-├── skill.md                  # 主技能文件（1027行）
-├── CHANGELOG.md              # 版本变更记录
-├── VERSION                   # 当前版本号
-├── Makefile                  # 发布命令
-├── README.md                 # 本文件
-└── references/
-    ├── report-templates.md       # 报告目录+批复文书（531行）
-    ├── structural-engineering.md # 钢筋砼+钢结构（140行）
-    ├── hydropower-irrigation.md  # 水电站+灌溉+河流动力学（136行）
-    ├── software.md               # 计算软件操作指南（361行）
-    ├── external-tools.md         # HEC-RAS/MIKE 11/Python引擎（893行）
-    ├── projects.md               # 实战工程经验库（190行）
-    ├── groundwater.md            # 地下水时间序列分析
-    ├── landlab.md                # 地表过程与河流地貌建模
-    └── external-tools.md         # HEC-RAS/MIKE 11/Python水面线引擎
+├── skill.md                 # 技能入口：任务路由、工作流、数据纪律与交付模板
+├── references/
+│   ├── standards.md         # 标准状态、等级与防洪标准
+│   ├── hydrology.md         # 设计洪水、P-III、暴雨径流与调洪
+│   ├── hydraulics.md        # 水面线、曼宁、堰流、水跃与消能
+│   ├── structures.md        # 坝闸堤防、挡土墙、渗流与稳定
+│   ├── flood-evaluation.md  # 涉河工程与洪水影响评价
+│   ├── reporting.md         # 报告编制与审查
+│   └── ...                  # 软件、地下水、地貌等按需参考资料
+├── evals/evals.json         # 典型任务的验收样例
+├── scripts/validate.py      # 文档与链接校验脚本
+├── CHANGELOG.md             # 版本变更记录
+└── VERSION                  # 当前版本号
 ```
 
----
+`skill.md` 只保留高频决策规则，具体方法按任务读取对应工作卡，避免一次加载与当前问题无关的资料。
 
-## 适用场景
+## 版本与迭代
 
-- 📐 **水利工程设计** — 可研/初设报告编写，提供标准章节模板
-- 🌊 **水文分析与计算** — P-III 频率分析、设计洪水推求
-- 🏗️ **水工结构计算** — 挡土墙、水闸、重力坝、土石坝
-- 📝 **行政许可申请** — 防洪评价、水资源论证报告编制
-- 🖥️ **软件操作指导** — 远盛水工、理正岩土、HEC-RAS 等
+| 版本 | 日期 | 主要变化 |
+| --- | --- | --- |
+| [v1.0.1](https://github.com/WhOleit-hub/water-engineering-skill/releases/tag/v1.0.1) | 2026-07-22 | 重构为“技能入口 + 专题工作卡”，新增洪评、报告、水文、水力、结构等任务路由；补充评测样例与文档校验；更新失效外部链接。 |
+| [v1.0.0](https://github.com/WhOleit-hub/water-engineering-skill/releases/tag/v1.0.0) | 2026-06-26 | 首次公开发布。 |
 
----
+后续迭代遵循语义化版本：修订或链接修复使用补丁版本；新增向后兼容的工作卡或流程使用次版本；不兼容的入口或交付规则调整使用主版本。
 
 ## 贡献
 
-欢迎水利同行贡献：
-1. Fork 本仓库
-2. 在 `develop` 分支提交更改
-3. 发起 Pull Request 到 `develop`
-4. 稳定后合并到 `master`，发布新版本
+欢迎提交可复现、可核查的改进。提交前请确保：
 
----
+1. 不包含项目名称、人员信息、坐标、原始图纸、涉密数据或其他敏感资料；
+2. 标准、公式和软件说明有明确出处，且不把经验值写成通用定值；
+3. 运行仓库校验：`python scripts/validate.py`；
+4. 通过 Pull Request 提交，说明适用场景、资料前提与验证方式。
 
 ## 许可
 
-MIT License
+本项目采用 [MIT License](LICENSE)。
