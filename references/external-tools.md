@@ -229,7 +229,7 @@ Step 7: 壅水长度 L = 上游回水延伸距离（水面线与天然线交点�
 # MIKE 11 —— 全流域水文水动力一体化平台
 
 > **开发商**：丹麦水力研究所 (DHI) | **价格**：商业许可（~¥15-30万/年）
-> **官网**：https://www.mikepoweredbydhi.com/ | **中文**：www.dhigroup.cn
+> **官网**：https://www.mikepoweredbydhi.com/ | **中国**：https://www.dhigroup.com/contacts/asia-pacific/china
 > **学习资源**：DHI Academy 在线课程 + 自带的 Tutorial 文档
 
 ## MIKE 11 核心模块体系

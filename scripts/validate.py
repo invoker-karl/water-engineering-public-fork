@@ -40,7 +40,7 @@ def main():
     # 2. VERSION format
     version_file = os.path.join(SKILL_DIR, "VERSION")
     if os.path.exists(version_file):
-        with open(version_file) as f:
+        with open(version_file, encoding='utf-8') as f:
             v = f.read().strip()
         check(re.match(r'^\d+\.\d+\.\d+$', v), f"VERSION format invalid: {v}")
         print(f"  Version: {v}")
@@ -62,7 +62,7 @@ def main():
     # 4. CHANGELOG format
     changelog = os.path.join(SKILL_DIR, "CHANGELOG.md")
     if os.path.exists(changelog):
-        with open(changelog) as f:
+        with open(changelog, encoding='utf-8') as f:
             content = f.read()
         check('[1.0.0]' in content, "CHANGELOG missing [1.0.0] entry")
 
