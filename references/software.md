@@ -312,3 +312,50 @@
   AutoBank 渗流+稳定断面 → 远盛水工 开挖断面+工程量
   → 理正岩土 岸坡稳定
 ```
+
+---
+
+## 后附：HEC-RAS 使用技巧
+
+### HEC-RAS CSV 断面导入格式
+
+在 Geometric Data → File → Import Geometric Data → CSV Format 中使用：
+
+```
+river,reach,RS,station,z
+HBX,HBX,1,0.000,878.521
+HBX,HBX,1,8.989,875.661
+```
+
+| 列 | 说明 |
+|:--|:-----|
+| river | 河道名 |
+| reach | 河段名 |
+| RS | 桩号（同一断面的所有点RS相同） |
+| station | 起点距(m) |
+| z | 高程(m) |
+
+注意事项：
+- 每行一个测点，同一断面的所有点必须有相同RS值
+- 先画河道中心线（River工具）再导入
+- 导入后需手动补Manning's n、Bank Sta、Exp/Cntr等参数
+- HEC-RAS 7.x 不支持 `,,,` 空列尾
+
+### Manning's n 在 .g01 中的格式
+
+HEC-RAS 7.x 使用固定8字符列宽：
+
+```
+#Mann= 3 ,0,0
+  左岸sta    .nnn       0       0左岸sta    .nnn       0  右岸sta    .nnn       0
+```
+
+每值8字符宽，9个值共72字符。3组breakpoint分别对应左滩、主槽、右滩。
+
+### HEC-RAS Mixed Flow 模式
+
+适用场景：同一河段既有缓流又有急流（如山洪沟）。
+设置：Run → Steady Flow Analysis → Flow Regime → 选 Mixed
+- 亚临界边界设下游（已知水位或正常水深）
+- 超临界边界设上游
+- HEC-RAS 自动处理水跃位置

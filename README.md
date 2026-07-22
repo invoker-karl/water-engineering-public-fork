@@ -1,7 +1,8 @@
-# water-engineering — 水利工程领域 Claude Code Skill
+# water-engineering — 水利工程领域专用 Claude Code Skill
 
 [![Skill](https://img.shields.io/badge/Claude_Code-Skill-8A2BE2)](https://code.claude.com)
-[![Size](https://img.shields.io/badge/Size-1667_lines_/_65KB-skill.md)](skill.md)
+[![Version](https://img.shields.io/github/v/release/WhOleit-hub/water-engineering-skill)](https://github.com/WhOleit-hub/water-engineering-skill/releases)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 一套完整的**水利水电工程领域 AI 辅助设计技能**，为中国水利工程师打造，覆盖水文计算、水工设计、中国标准规范、施工组织、工程经济等全专业领域。
 
@@ -19,36 +20,79 @@
 | **水电站** | 引水系统、水锤调保、水轮机选型、厂房布置 |
 | **灌溉排水** | 灌溉原理、灌水方法、渠道设计、排水系统 |
 | **河流动力学** | 泥沙运动、河床演变、河道整治 |
+| **地下水** | 传递函数噪声模型、含水层参数率定（整合 pastas 技能） |
+| **计算软件** | 远盛水工、理正岩土、理正结构工具箱、AutoBank、HEC-RAS、MIKE 11 |
 | **报告模板** | 可研/初设/防洪评价/水文专题/水资源论证/大坝安全评价/山洪沟治理标准目录 |
 | **批复文书** | 水利部 22 种水行政许可文书模板 |
+| **实战项目库** | 40+ 个福建水利工程项目（2023-2026）经验数据 |
 
-## 目录结构
+---
+
+## 版本与迭代
+
+| 版本 | 日期 | 说明 |
+|:----:|:----:|:----|
+| v1.0.0 | 2026-06-26 | 首次发布，行数优化 2322→1027（-56%） |
+
+开发在 `develop` 分支进行，稳定后合并到 `master` 并发布 Release。
+
+---
+
+## 安装使用
+
+```bash
+# 克隆到 Claude Code skills 目录
+git clone https://github.com/WhOleit-hub/water-engineering-skill.git ~/.claude/skills/water-engineering
+
+# 在 Claude Code 中调用
+/water-engineering
+```
+
+---
+
+## 文件结构
 
 ```
 water-engineering/
-├── skill.md                    ← 核心知识（自动加载到上下文）
-└── references/                 ← 按需加载的参考文件
-    ├── software.md             ← 远盛/理正/AutoBank 操作
-    ├── projects.md             ← 实战项目经验
-    ├── groundwater.md          ← pastas 地下水分析
-    ├── landlab.md              ← 地表过程建模
-    └── external-tools.md       ← SkillsBot 引擎参考
+├── skill.md                  # 主技能文件（1027行）
+├── CHANGELOG.md              # 版本变更记录
+├── VERSION                   # 当前版本号
+├── Makefile                  # 发布命令
+├── README.md                 # 本文件
+└── references/
+    ├── report-templates.md       # 报告目录+批复文书（531行）
+    ├── structural-engineering.md # 钢筋砼+钢结构（140行）
+    ├── hydropower-irrigation.md  # 水电站+灌溉+河流动力学（136行）
+    ├── software.md               # 计算软件操作指南（361行）
+    ├── external-tools.md         # HEC-RAS/MIKE 11/Python引擎（893行）
+    ├── projects.md               # 实战工程经验库（190行）
+    ├── groundwater.md            # 地下水时间序列分析
+    ├── landlab.md                # 地表过程与河流地貌建模
+    └── external-tools.md         # HEC-RAS/MIKE 11/Python水面线引擎
 ```
 
-> skill.md 加载约 65KB 核心知识，reference 文件仅在需要时自动读取。
+---
 
-## 安装
+## 适用场景
 
-```bash
-# 安装到 Claude Code skills 目录
-# 将 water-engineering 目录复制到:
-#   ~/.claude/skills/water-engineering/
-# 然后在 Claude Code 中使用 /water-engineering 调用
-```
+- 📐 **水利工程设计** — 可研/初设报告编写，提供标准章节模板
+- 🌊 **水文分析与计算** — P-III 频率分析、设计洪水推求
+- 🏗️ **水工结构计算** — 挡土墙、水闸、重力坝、土石坝
+- 📝 **行政许可申请** — 防洪评价、水资源论证报告编制
+- 🖥️ **软件操作指导** — 远盛水工、理正岩土、HEC-RAS 等
 
-## 数据来源
+---
 
-本技能的知识体系基于：
-- 中国国家标准（GB/GB/T）和水利行业标准（SL/SL/T）
-- 经典水利教材（吴持恭《水力学》、詹道江《工程水文学》等）
-- 水利部规范文件及报告编制规程
+## 贡献
+
+欢迎水利同行贡献：
+1. Fork 本仓库
+2. 在 `develop` 分支提交更改
+3. 发起 Pull Request 到 `develop`
+4. 稳定后合并到 `master`，发布新版本
+
+---
+
+## 许可
+
+MIT License
